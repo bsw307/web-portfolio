@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baltasar's Terminal Portfolio</title>
+  <title>Baltasar's Portfolio</title>
   <style>
     body {
       margin: 0;
@@ -11,6 +11,22 @@
       font-family: "Courier New", Courier, monospace;
       transition: background-color 0.3s, color 0.3s;
     }
+    .container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.terminal {
+  flex: 1;
+}
+
+.dashboard {
+  flex-shrink: 0;
+  max-width: 600px;
+  overflow: hidden;
+}
 
     .terminal-line {
       margin-bottom: 1rem;
@@ -70,6 +86,8 @@
 </head>
 <body>
   <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+  
+<div class="container">
   <div class="terminal">
     <div class="terminal-line">Baltasar Salamon Welwert</div>
     <div class="terminal-line">--------------------------------------</div>
@@ -86,6 +104,16 @@
     <div class="terminal-line">
       &gt; <a href="mailto:DONTEMAILMEHERE@email.com">Contact </a><br/>
       &nbsp;&nbsp;&nbsp;&nbsp;↳ Send me an email
+    </div>
+  </div>
+  
+    <div class="dashboard">
+      <iframe
+        src="https://cornbelt-ndvi-dashboard.streamlit.app"
+        width="600"
+        height="800"
+        frameborder="0"
+      ></iframe>
     </div>
   </div>
 
@@ -107,5 +135,6 @@
     const savedTheme = localStorage.getItem("theme") || "dark";
     document.body.classList.add(savedTheme + "-mode");
   </script>
-</body>
+  </body>
+
 </html>
