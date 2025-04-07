@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baltasar's Terminal Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: "Courier New", Courier, monospace;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .terminal-line {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    /* Dark theme */
+    .dark-mode {
+      background-color: blue;
+      color: #FFFFFF;
+    }
+
+    .dark-mode a {
+      color: #FFFFFF;
+    }
+
+    .dark-mode .toggle-btn {
+      background-color: #222;
+      color: #FFFFFF;
+      border: 1px solid #FFFFFF;
+    }
+
+    /* Light theme */
+    .light-mode {
+      background-color: #f4f4f4;
+      color: #003300;
+    }
+
+    .light-mode a {
+      color: #003300;
+    }
+
+    .light-mode .toggle-btn {
+      background-color: #e0e0e0;
+      color: #003300;
+      border: 1px solid #003300;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+  <div class="terminal">
+    <div class="terminal-line">Baltasar Salamon Welwert</div>
+    <div class="terminal-line">--------------------------------------</div>
+
+    <div class="terminal-line">
+      &gt; <a href="https://natgas-arbitrage.streamlit.app/" target="_blank">Natural Gas Price Divergence & Arbitrage</a><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;↳ Henry Hub spot v. future arbitrage model (random forest & linear regression)
+    </div>
+
+    <div class="terminal-line">
+      &gt; <a href="https://github.com/bsw307" target="_blank">GitHub Repository</a><br/>
+    </div>
+
+    <div class="terminal-line">
+      &gt; <a href="mailto:DONTEMAILMEHERE@email.com">Contact </a><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;↳ Send me an email
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        localStorage.setItem("theme", "light");
+      } else {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      }
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.body.classList.add(savedTheme + "-mode");
+  </script>
+</body>
+</html>
