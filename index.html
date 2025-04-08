@@ -11,22 +11,28 @@
       font-family: "Courier New", Courier, monospace;
       transition: background-color 0.3s, color 0.3s;
     }
+
     .container {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  margin-top: 2rem;
-}
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-top: 2rem;
+    }
 
-.terminal {
-  flex: 1;
-}
+    .terminal {
+      flex: 1;
+    }
 
-.dashboard {
-  flex-shrink: 0;
-  max-width: 600px;
-  overflow: hidden;
-}
+    .dashboard {
+      flex-shrink: 0;
+      max-width: 600px;
+      overflow: hidden;
+      background: #000;
+      color: #33ff33;
+      padding: 1rem;
+      border: 1px solid #33ff33;
+      white-space: pre-wrap;
+    }
 
     .terminal-line {
       margin-bottom: 1rem;
@@ -51,9 +57,8 @@
       font-family: inherit;
     }
 
-    /* Dark theme */
     .dark-mode {
-      background-color: blue;
+      background-color: #000f33;
       color: #FFFFFF;
     }
 
@@ -67,7 +72,6 @@
       border: 1px solid #FFFFFF;
     }
 
-    /* Light theme */
     .light-mode {
       background-color: #f4f4f4;
       color: #003300;
@@ -86,33 +90,34 @@
 </head>
 <body>
   <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
-  
-<div class="container">
-  <div class="terminal">
-    <div class="terminal-line">Baltasar Salamon Welwert</div>
-    <div class="terminal-line">--------------------------------------</div>
 
-    <div class="terminal-line">
-      &gt; <a href="https://natgas-arbitrage.streamlit.app/" target="_blank">Natural Gas Price Divergence & Arbitrage</a><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;↳ Henry Hub spot v. future arbitrage model (random forest & linear regression)
-    </div>
-        <div class="terminal-line">
-      &gt; <a href="https://cornbelt-ndvi-dashboard.streamlit.app/" target="_blank">Corn Belt NDVI & futures</a><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;↳ Current futures prices against monthly vegetation greenness.)
+  <div class="container">
+    <div class="terminal">
+      <div class="terminal-line">Baltasar Salamon Welwert</div>
+      <div class="terminal-line">--------------------------------------</div>
+
+      <div class="terminal-line">
+        &gt; <a href="https://natgas-arbitrage.streamlit.app/" target="_blank">Natural Gas Price Divergence & Arbitrage</a><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;↳ Henry Hub spot v. future arbitrage model (random forest & linear regression)
+      </div>
+
+      <div class="terminal-line">
+        &gt; <a href="https://cornbelt-ndvi-dashboard.streamlit.app/" target="_blank">Corn Belt NDVI & futures</a><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;↳ Current futures prices against monthly vegetation greenness.
+      </div>
+
+      <div class="terminal-line">
+        &gt; <a href="https://github.com/bsw307" target="_blank">GitHub Repository</a><br/>
+      </div>
+
+      <div class="terminal-line">
+        &gt; <a href="mailto:DONTEMAILMEHERE@email.com">Contact </a><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;↳ Send me an email
+      </div>
     </div>
 
-
-    <div class="terminal-line">
-      &gt; <a href="https://github.com/bsw307" target="_blank">GitHub Repository</a><br/>
-    </div>
-
-    <div class="terminal-line">
-      &gt; <a href="mailto:DONTEMAILMEHERE@email.com">Contact </a><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;↳ Send me an email
-    </div>
+    <pre class="dashboard" id="ascii-output">Loading dashboard...</pre>
   </div>
-  
-
 
   <script>
     function toggleTheme() {
@@ -131,7 +136,20 @@
     // Load saved theme
     const savedTheme = localStorage.getItem("theme") || "dark";
     document.body.classList.add(savedTheme + "-mode");
-  </script>
-  </body>
 
+    // Fetch ASCII dashboard
+    async function fetchAscii() {
+      try {
+        const res = await fetch("https://natural-gas-map.fly.dev/api/ascii_map");
+        const text = await res.text();
+        document.getElementById("ascii-output").textContent = text;
+      } catch (err) {
+        document.getElementById("ascii-output").textContent = "Failed to load data.";
+      }
+    }
+
+    fetchAscii();
+    setInterval(fetchAscii, 1000 * 60 * 10); // Refresh every 10 minutes
+  </script>
+</body>
 </html>
