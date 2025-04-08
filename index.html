@@ -96,12 +96,13 @@
   flex-direction: column;
   gap: 1.5rem;
   max-width: 700px;
-  margin: 0 auto;
   padding: 2rem;
   background-color: #1e1e1e;
   border: 1px solid #444;
   border-radius: 8px;
   font-family: "Courier New", Courier, monospace;
+  margin-right: auto; /* Align to the left */
+  margin-left: 0; /* Remove any automatic centering */
 }
 
 .contact-form h2 {
@@ -156,36 +157,36 @@
 
 /* Dark Mode Contact Form */
 .dark-mode .contact-form {
-  background-color: BLACK; 
+  background-color: BLACK;
   color: #ddd;
 }
 
 .dark-mode .contact-form input,
 .dark-mode .contact-form textarea {
-  background-color: #333; /* Slightly darker background for input fields */
-  color: #ddd; /* Lighter text color */
-  border: 1px solid #444; /* Slightly lighter border */
+  background-color: #333;
+  color: #ddd;
+  border: 1px solid #444;
 }
 
 .dark-mode .contact-form button {
-  background-color: #28a745; /* Darker green button for contrast */
+  background-color: #28a745;
 }
 
 /* Light Mode Contact Form */
 .light-mode .contact-form {
-  background-color: #f0f0f0; /* Lighter background color for light mode */
-  color: #003300; /* Darker text color for readability */
+  background-color: #f0f0f0;
+  color: #003300;
 }
 
 .light-mode .contact-form input,
 .light-mode .contact-form textarea {
-  background-color: #fff; /* White background for input fields */
-  color: #003300; /* Darker text color */
-  border: 1px solid #ccc; /* Normal border */
+  background-color: #fff;
+  color: #003300;
+  border: 1px solid #ccc;
 }
 
 .light-mode .contact-form button {
-  background-color: #33ff33; /* Green button for contrast */
+  background-color: #33ff33;
 }
   </style>
 </head>
