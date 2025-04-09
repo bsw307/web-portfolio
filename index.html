@@ -267,7 +267,7 @@
     // Fetch ASCII dashboard
     async function fetchAscii() {
       try {
-        const res = await fetch("https://bsw307.github.io/data/ascii_map.txt");
+        const res = await fetch("https://bsw307.github.io/web-portfolio/data/ascii_map.txt");
         const text = await res.text();
         document.getElementById("ascii-output").textContent = text;
       } catch (err) {
