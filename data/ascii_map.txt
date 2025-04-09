@@ -1,1 +1,30 @@
+Natural Gas Spot Prices and Basis Spreads (vs. Henry Hub)
 
+ HH | $ 4.11 | Basis: +$0.00 | Henry Hub
+ WA | $ 3.81 | Basis: -$0.30 | Waha
+ SC | $ 4.36 | Basis: +$0.25 | SoCal Border
+ CH | $ 4.21 | Basis: +$0.10 | Chicago Citygate
+ AG | $ 5.26 | Basis: +$1.15 | Algonquin Citygate
+ DS | $ 3.91 | Basis: -$0.20 | Dominion South
+ TZ | $ 5.01 | Basis: +$0.90 | Transco Zone 6 NY
+
+Storage Levels:
+U.S. Total: 1773 Bcf (+29 Bcf)
+East: 284 Bcf (-14 Bcf)
+Midwest: 364 Bcf (-3 Bcf)
+South Central: 758 Bcf (+33 Bcf)
+Mountain: 165 Bcf (+2 Bcf)
+Pacific: 202 Bcf (+10 Bcf)
+South Central (Salt): 218 Bcf
+South Central (Non-Salt): 540 Bcf
+(as of 2025-03-28)
+
+Production & Value:
+Average U.S. Citygate Price (as of 2025-01): $5.82 / MMBtu
+TEXAS: 1,041,170 MMcf
+Pennsylvania: 664,512 MMcf
+New Mexico: 319,474 MMcf
+U.S. Total: 3,494,894 MMcf
+(as of 2025-01)
+
+Updated: 2025-04-09 06:04:25 UTC
